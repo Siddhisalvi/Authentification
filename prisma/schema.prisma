@@ -5,7 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearchPostgres"]
 }
 
 // prisma/schema.prisma
@@ -76,4 +77,14 @@ model Verification {
   updatedAt  DateTime @updatedAt
 
   @@map("verifications")
+}
+
+model Ytvideo {
+  id        String   @id @default(cuid())
+  url       String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updaredAt DateTime @updatedAt
+
+  @@map("ytvideos")
 }
