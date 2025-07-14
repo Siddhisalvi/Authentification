@@ -43,7 +43,7 @@ model Session {
   impersonatedBy String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
-
+  //in User make "U" -> "u" like others some might face problems in long run of website
   User User @relation(fields: [userId], references: [id], onDelete: Cascade) //deletes session if user is deleted because id session is still there even after user is deleted it throws error
 
   @@map("sessions")
